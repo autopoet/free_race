@@ -1,7 +1,12 @@
+import os
+
 from playwright.sync_api import sync_playwright
 
 
-INVITE_URL = "http://127.0.0.1:4173/free_race/?roomCode=ABCDEF1234"
+BASE_URL = os.environ.get(
+    "WEB_BASE_URL", "http://127.0.0.1:4173/free_race"
+).rstrip("/")
+INVITE_URL = f"{BASE_URL}/?roomCode=ABCDEF1234"
 
 
 with sync_playwright() as playwright:
@@ -30,9 +35,7 @@ with sync_playwright() as playwright:
         == "/free_race/manifest.json"
     )
 
-    manifest_response = page.request.get(
-        "http://127.0.0.1:4173/free_race/manifest.json"
-    )
+    manifest_response = page.request.get(f"{BASE_URL}/manifest.json")
     assert manifest_response.ok
     assert manifest_response.json()["display"] == "standalone"
 
