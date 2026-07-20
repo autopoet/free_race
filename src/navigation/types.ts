@@ -1,5 +1,5 @@
 export type RootStackParamList = {
-  Home: undefined;
+  Home: { roomCode?: string } | undefined;
   Nickname: { mode: 'create' | 'join'; roomCode?: string };
   Waiting: undefined;
   Scanner: undefined;

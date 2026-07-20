@@ -1,20 +1,31 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 
 import { DecorativePixels } from '@/components/DecorativePixels';
 import { Page } from '@/components/Page';
 import { PixelButton } from '@/components/PixelButton';
 import { PixelSushi } from '@/components/PixelSushi';
+import { normalizeRoomCode } from '@/lib/invite';
 import { RootStackParamList } from '@/navigation/types';
 import { useMatch } from '@/store/MatchContext';
 import { colors, typography } from '@/theme/tokens';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
-export function HomeScreen({ navigation }: Props) {
+export function HomeScreen({ navigation, route }: Props) {
   const { state, history } = useMatch();
   const resumable = state.status === 'active' || state.status === 'end_pending';
   const waiting = state.status === 'waiting';
+  const invitedRoomCode = normalizeRoomCode(route.params?.roomCode);
+
+  useEffect(() => {
+    if (!invitedRoomCode) return;
+    navigation.replace('Nickname', {
+      mode: 'join',
+      roomCode: invitedRoomCode,
+    });
+  }, [invitedRoomCode, navigation]);
 
   return (
     <Page backgroundColor={colors.rice} contentStyle={styles.page}>
@@ -61,6 +72,11 @@ export function HomeScreen({ navigation }: Props) {
         onPress={() => navigation.navigate('History')}
         variant="ghost"
       />
+      {Platform.OS === 'web' ? (
+        <Text style={styles.installHint}>
+          iPhone 可在 Safari 点“共享”→“添加到主屏幕”
+        </Text>
+      ) : null}
     </Page>
   );
 }
@@ -93,5 +109,12 @@ const styles = StyleSheet.create({
   actions: {
     width: '100%',
     gap: 18,
+  },
+  installHint: {
+    marginTop: 8,
+    color: colors.mutedSoy,
+    textAlign: 'center',
+    fontFamily: typography.regular,
+    fontSize: 12,
   },
 });

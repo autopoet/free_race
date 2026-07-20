@@ -8,6 +8,7 @@ import { AppHeader } from '@/components/AppHeader';
 import { Page } from '@/components/Page';
 import { PixelButton } from '@/components/PixelButton';
 import { PixelSurface } from '@/components/PixelSurface';
+import { createInviteLink } from '@/lib/invite';
 import { RootStackParamList } from '@/navigation/types';
 import { useMatch } from '@/store/MatchContext';
 import { colors, typography } from '@/theme/tokens';
@@ -22,7 +23,7 @@ export function WaitingScreen({ navigation }: Props) {
     simulateOpponentJoin,
     resetMatch,
   } = useMatch();
-  const link = `sushiking://join?mode=join&roomCode=${state.roomCode ?? ''}`;
+  const link = createInviteLink(state.roomCode);
 
   useEffect(() => {
     if (state.status === 'active') {
@@ -70,6 +71,7 @@ export function WaitingScreen({ navigation }: Props) {
             <View style={[styles.dot, { backgroundColor: colors.blush }]} />
           </View>
           <Text selectable style={styles.code}>房间码 {state.roomCode}</Text>
+          <Text style={styles.scanHint}>用手机系统相机扫码即可加入</Text>
           {state.backend === 'supabase' ? (
             <View style={styles.liveStatus}>
               <View
@@ -150,6 +152,12 @@ const styles = StyleSheet.create({
     fontFamily: typography.display,
     fontSize: 19,
     letterSpacing: 1.4,
+  },
+  scanHint: {
+    marginTop: 10,
+    color: colors.mutedSoy,
+    fontFamily: typography.regular,
+    fontSize: 13,
   },
   liveStatus: {
     flexDirection: 'row',

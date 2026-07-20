@@ -6,23 +6,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import { AppHeader } from '@/components/AppHeader';
 import { Page } from '@/components/Page';
 import { PixelButton } from '@/components/PixelButton';
+import { roomCodeFromInvite } from '@/lib/invite';
 import { RootStackParamList } from '@/navigation/types';
 import { colors, typography } from '@/theme/tokens';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Scanner'>;
-
-function roomFromData(data: string) {
-  try {
-    const parsed = new URL(data);
-    if (parsed.protocol !== 'sushiking:' || parsed.hostname !== 'join') {
-      return undefined;
-    }
-    const code = parsed.searchParams.get('roomCode')?.trim().toUpperCase();
-    return code && /^[A-F0-9]{10}$/.test(code) ? code : undefined;
-  } catch {
-    return undefined;
-  }
-}
 
 export function ScannerScreen({ navigation }: Props) {
   const [permission, requestPermission] = useCameraPermissions();
@@ -68,7 +56,7 @@ export function ScannerScreen({ navigation }: Props) {
           scanned
             ? undefined
             : ({ data }) => {
-                const code = roomFromData(data);
+                const code = roomCodeFromInvite(data);
                 if (!code) {
                   setScanError('这不是有效的寿司比赛二维码，请重新扫描');
                   setScanned(true);

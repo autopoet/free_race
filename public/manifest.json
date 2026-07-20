@@ -1,0 +1,26 @@
+{
+  "name": "今天谁是寿司王",
+  "short_name": "寿司王",
+  "description": "两个人在同一家寿司店，边吃边记，实时争夺寿司王。",
+  "lang": "zh-CN",
+  "start_url": "/free_race/",
+  "scope": "/free_race/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#F3A65A",
+  "background_color": "#FFF8E8",
+  "icons": [
+    {
+      "src": "/free_race/pwa-icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/free_race/pwa-icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -3,10 +3,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
 import * as Linking from 'expo-linking';
 import { StatusBar } from 'expo-status-bar';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import {
+  ActivityIndicator,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { PixelSushi } from '@/components/PixelSushi';
+import { normalizeRoomCode } from '@/lib/invite';
 import { RootStackParamList } from '@/navigation/types';
 import { BattleScreen } from '@/screens/BattleScreen';
 import { HistoryScreen } from '@/screens/HistoryScreen';
@@ -36,6 +44,14 @@ const linking = {
 
 function Navigator() {
   const { hydrated } = useMatch();
+  const [initialRoomCode] = useState(() => {
+    if (Platform.OS !== 'web' || typeof window === 'undefined') {
+      return undefined;
+    }
+    return normalizeRoomCode(
+      new URL(window.location.href).searchParams.get('roomCode'),
+    );
+  });
 
   if (!hydrated) {
     return (
@@ -48,7 +64,7 @@ function Navigator() {
   }
 
   return (
-    <NavigationContainer linking={linking}>
+    <NavigationContainer linking={Platform.OS === 'web' ? undefined : linking}>
       <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{
@@ -57,7 +73,13 @@ function Navigator() {
           headerShown: false,
         }}
       >
-        <Stack.Screen component={HomeScreen} name="Home" />
+        <Stack.Screen
+          component={HomeScreen}
+          initialParams={
+            initialRoomCode ? { roomCode: initialRoomCode } : undefined
+          }
+          name="Home"
+        />
         <Stack.Screen component={NicknameScreen} name="Nickname" />
         <Stack.Screen component={WaitingScreen} name="Waiting" />
         <Stack.Screen component={ScannerScreen} name="Scanner" />
