@@ -1,0 +1,44 @@
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native build outputs
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+/ios
+/android
+
+# Metro
+.metro-health-check*
+
+# logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# local environment
+.env
+.env.*
+!.env.example
+.env*.local
+.supabase-access-token
+.expo-access-token
+
+# TypeScript
+*.tsbuildinfo
+
+# OS
+.DS_Store
+
+# local scaffold
+tmp-expo-scaffold/

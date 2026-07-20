@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-20T15:56:51.2021219+08:00",
+  "title": "Design System: 今天谁是寿司王",
+  "extensions": {
+    "colorMeta": {
+      "salmon": {
+        "role": "primary",
+        "displayName": "鲑鱼动作橙",
+        "canonical": "#F47661",
+        "tonalRamp": ["#4B1713", "#73251F", "#A63A31", "#D94B45", "#F47661", "#F89A87", "#FBC2B5", "#FDE8E2"]
+      },
+      "tamago": {
+        "role": "secondary",
+        "displayName": "玉子互动黄",
+        "canonical": "#F9CB5C",
+        "tonalRamp": ["#493606", "#70530B", "#A97D14", "#D29A34", "#F9CB5C", "#FAD987", "#FCE8B8", "#FEF5E1"]
+      },
+      "soy": {
+        "role": "neutral",
+        "displayName": "酱油结构棕",
+        "canonical": "#402A26",
+        "tonalRamp": ["#1A100E", "#2A1C1A", "#402A26", "#60433D", "#76554D", "#A68178", "#D3B8B1", "#F2E6E3"]
+      },
+      "rice": {
+        "role": "neutral",
+        "displayName": "米饭工作面",
+        "canonical": "#FFF8E8",
+        "tonalRamp": ["#332C1E", "#5A503B", "#827456", "#AD9C76", "#D8C9A4", "#FFF0D1", "#FFF8E8", "#FFFFFF"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "掌机数字",
+        "purpose": "只用于比分、计数和短促游戏状态。"
+      },
+      "body": {
+        "displayName": "系统中文",
+        "purpose": "用于寿司名称、表单、说明和所有长文本。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "pixel-low",
+        "value": "0 6px 0 #F5B2A2",
+        "purpose": "寿司签与普通输入的结构化硬阴影。"
+      },
+      {
+        "name": "pixel-action",
+        "value": "0 6px 0 #D94B45",
+        "purpose": "主要按钮与激活寿司签的触感阴影。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "press",
+        "value": "90ms ease-out",
+        "purpose": "按钮下压和回弹。"
+      },
+      {
+        "name": "state",
+        "value": "280ms ease-out",
+        "purpose": "数字变化与弹层状态。"
+      },
+      {
+        "name": "celebration",
+        "value": "480ms ease-out",
+        "purpose": "寿司筹码飞行和反超反馈。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone-max",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [],
+  "narrative": {
+    "northStar": "暖机寿司",
+    "overview": "像一台放在寿司桌上的小型掌机：像素语言负责游戏触感，系统中文负责可靠信息。",
+    "keyCharacteristics": [
+      "暖色全调色板与深酱油结构色",
+      "4–8px 短硬偏移阴影",
+      "玩家状态不只依赖颜色",
+      "动效集中在计数、反超和夺冠"
+    ],
+    "rules": [
+      {
+        "name": "Pixel Accent",
+        "body": "像素字体禁止用于长中文、表单标签或说明段落。",
+        "section": "typography"
+      },
+      {
+        "name": "Short Shadow",
+        "body": "阴影偏移不得超过 8px，不与细描边叠加。",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "保持谁领先和怎样加一在比赛首屏可见。",
+      "用昵称、位置和文字补充玩家颜色。"
+    ],
+    "donts": [
+      "不要使用玻璃拟态、紫色渐变、大面积软阴影或通用 SaaS 结构。",
+      "不要因动画阻止连续计数。"
+    ]
+  }
+}

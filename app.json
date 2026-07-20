@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "owner": "autopoet",
+    "name": "今天谁是寿司王",
+    "slug": "free-race",
+    "scheme": "sushiking",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.autopoet.freerace"
+    },
+    "android": {
+      "package": "com.autopoet.freerace",
+      "adaptiveIcon": {
+        "backgroundColor": "#F3A65A",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": true,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-font",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "允许“今天谁是寿司王”使用相机扫描对手的比赛二维码"
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 180,
+          "resizeMode": "contain",
+          "backgroundColor": "#F3A65A"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "b7e8dad0-ee00-4a16-bb94-7eea8daf2ad5"
+      }
+    }
+  }
+}
