@@ -1,7 +1,7 @@
 {
   "expo": {
     "owner": "autopoet",
-    "name": "今天谁是寿司王",
+    "name": "寿司王",
     "slug": "free-race",
     "scheme": "sushiking",
     "version": "1.0.0",
@@ -19,9 +19,7 @@
       "package": "com.autopoet.freerace",
       "adaptiveIcon": {
         "backgroundColor": "#F3A65A",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/android-icon-foreground.png"
       },
       "predictiveBackGestureEnabled": true,
       "permissions": [
@@ -34,7 +32,7 @@
       "bundler": "metro",
       "output": "single",
       "lang": "zh-CN",
-      "name": "今天谁是寿司王",
+      "name": "寿司王",
       "shortName": "寿司王"
     },
     "plugins": [

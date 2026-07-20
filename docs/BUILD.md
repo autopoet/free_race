@@ -44,5 +44,9 @@ npx eas-cli@latest build --platform android --profile preview
 
 构建完成后会得到一个下载链接，可把 APK 直接安装到 Android 手机。
 
+本地直装版本使用项目根目录 `.credentials/` 中的发布密钥签名；该目录不会提交
+到 Git。需要把密钥与属性文件一并安全备份，后续升级必须继续使用同一密钥，
+否则手机只能卸载旧版后重新安装。
+
 本项目只做朋友间内部使用，不配置 App Store、TestFlight 或 Google Play
 商店发布流程。
