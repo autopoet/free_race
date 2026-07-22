@@ -16,6 +16,16 @@
   <a href="./DESIGN.md">视觉设计</a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/autopoet/free_race/releases/download/v1.0.0/sushi-king-1.0.0-arm64-release.apk">
+    <img src="https://img.shields.io/badge/Android_APK-%E7%AB%8B%E5%8D%B3%E4%B8%8B%E8%BD%BD-F97360?style=for-the-badge&amp;logo=android&amp;logoColor=white" alt="立即下载寿司王 Android APK" />
+  </a>
+  <br />
+  <strong>v1.0.0 · ARM64 · 约 39.5 MB · Android 7.0+</strong>
+  <br />
+  <sub>已完成荣耀手机真机安装与启动验证 · <a href="https://github.com/autopoet/free_race/releases/tag/v1.0.0">查看版本说明</a></sub>
+</p>
+
 「寿司王」是一款使用 Expo React Native 构建的 iOS / Android 跨端寿司计数对战应用。无需注册账号，两个人到餐厅后即可临时创建比赛，通过二维码加入同一房间，共享寿司菜单和实时比分。
 
 ## 设计预览
@@ -45,9 +55,9 @@
 
 如果链接是从微信打开的，请先通过右上角菜单选择“在 Safari 中打开”。这种方式不需要 Apple Developer 账号，也不需要从 App Store 下载。
 
-### Android：安装 APK
+### Android：下载安装包
 
-1. 接收项目维护者提供的 `sushi-king-*.apk` 安装包。
+1. 点击上方醒目的“Android APK 立即下载”按钮，或[直接下载寿司王 v1.0.0 APK](https://github.com/autopoet/free_race/releases/download/v1.0.0/sushi-king-1.0.0-arm64-release.apk)。
 2. 点击 APK 安装；如果系统提示，请允许当前文件管理器“安装未知应用”。
 3. 安装完成后从桌面打开「寿司王」，并允许扫码所需的相机权限。
 
